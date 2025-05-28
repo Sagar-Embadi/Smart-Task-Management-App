@@ -1,125 +1,110 @@
-## 🕹️ Blink Tac Toe — Player vs Computer
-Blink Tac Toe is a playful and animated twist on the classic Tic Tac Toe game. Built using React (Vite), it supports:
+# 🧠 Smart Task Management App
+A full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that enables users to manage tasks efficiently with role-based access, visual analytics, and cloud readiness.
 
- - Player vs Computer mode
- - Player vs Player mode
- - Emoji category selection
- - Vanishing rule gameplay
- - Dark mode support
- - Move history tracking
- - Rich visual UI with avatars, animations, and effects
+## 📌 Features
+### 🔐 Authentication
+- JWT-based Sign Up/Login
 
-## ✨ Features
-### 🎮 Gameplay Mechanics
+- Google OAuth Login
 
-- Select from various emoji categories (e.g. Animals, Food, Sports)
-- Only 3 emojis allowed on the board per player at any time
-- The oldest emoji vanishes when a 4th is placed
-- Win by forming a line of 3 emojis
-- No draws — keep playing until someone wins!
+- Role-based access: Admin / User
 
-## 🧠 Player vs AI
-- Computer selects random emojis
-- Computer plays intelligently using available spaces
-- Turn-based logic with visual highlighting
+## 📋 Task Management
+- Create, Read, Update, Delete (CRUD) operations on tasks
+- Attributes: task name, description, category, due date, status (complete/incomplete)
+- Categorized views:
+    - Today's Tasks
+    - Upcoming Tasks
+    - Completed / Uncompleted Tasks
 
-## 👯‍♀️ Player vs Payer
-- Each player select there emojis
-- Players plays intelligently using available spaces
-- Turn-based logic with visual highlighting
+## 📊 Dashboard
+- Task summary and progress visualization
+- Graph of tasks completed in the last 7 days
+- Popular categories overview
+- Tasks due today list
 
-## 💎 UI/UX Enhancements
-- Modern responsive UI with Tailwind CSS
-- Highlighted turns and winner banners
-- Custom avatars for player and AI
-- Lottie animations and confetti effects
-- Emoji-based move timeline and stats
+## 📥 Data Export
+- Export all listings as CSV, Excel, or PDF
+- Includes sorting and filtering options
 
-## 📁 Project Structure
-src/ <br>
-├── assets/<br>
-│   ├── emojis.js<br>
-│   ├── react.svg<br>
-│   └── winnerAnimation.json<br>
-├── components/<br>
-│   └── ui/ <br>
-│   ├── Board.jsx<br>
-│   ├── Cell.jsx<br>
-│   ├── Emoji.jsx<br>
-│   ├── EmojiCategoryModal.jsx<br>
-│   ├── GameSelectionCards.jsx<br>
-│   ├── GameStats.jsx<br>
-│   ├── GameStatsMultiplayer.jsx<br>
-│   ├── Help.jsx<br>
-│   ├── Navbar.jsx<br>
-│   ├── PlayerHeader.jsx<br>
-│   ├── PlayerSetupModal.jsx<br>
-│   ├── ThemeToggle.jsx<br>
-│   └── WinnerModal.jsx<br>
-├── hooks/ <br>
-│   ├── useMultiplayerGame.js <br>
-│   └── useSinglePlayerGame.js<br>
-├── lib/<br>
-├── pages/  <br>
-│   ├── GameSelection.jsx<br>
-│   ├── MultiPlayer.jsx<br>
-│   └── SinglePlayerGame.jsx<br>
-├── App.jsx<br>
-├── App.css<br>
-└── index.css<br>
+## 🧑‍💻 Admin Panel
+- Create or deactivate user accounts
+- View audit logs of user actions
 
-## 📽️ Recorded Video
-[![Watch the demo on loom](https://www.loom.com/share/d8222a1a7dba443d8178712b27ece8d9?sid=8de4f3a5-aa29-4dd9-9322-f7dedc4f3b20)](https://www.loom.com/share/d8222a1a7dba443d8178712b27ece8d9?sid=8de4f3a5-aa29-4dd9-9322-f7dedc4f3b20)
+## 🏗️ Tech Stack
 
+| Layer      | Tech                                |
+| ---------- | ----------------------------------- |
+| Frontend   | React.js, Tailwind CSS, Recharts.js |
+| Backend    | Node.js, Express.js                 |
+| Database   | MySQL (using Sequelize ORM)         |
+| Auth       | JWT, Google OAuth 2.0               |
+| Deployment | AWS EC2, RDS, S3, CloudWatch        |
 
-## 🚀 Getting Started
-### 📦 Prerequisites
- Make sure you have:
+## 🔧 Installation
+### 🖥️ Local Setup
 
-Node.js (v18+ recommended)
+#### Clone the repository
+git clone https://github.com/your-username/smart-task-management-app.git
+cd smart-task-management-app
 
-npm or pnpm
+#### Backend setup
+cd server <br>
+npm install<br>
+npm run dev
 
-## 📥 Installation
-### Clone the repository
-`git clone https://github.com/sagar-embadi/blink-tac-toe.git`
+#### Frontend setup
+cd ../client <br>
+npm install <br>
+npm run dev
 
-### Navigate to the project folder
-`cd blink-tac-toe`
+Create a .env file in both server/ and client/ folders with appropriate variables like DB credentials, JWT secret, and Google OAuth keys.
 
-### Install dependencies
-`npm install`
+## 🌐 API Endpoints
+### Auth
+ - POST /api/auth/register
+ - POST /api/auth/login
+ - GET /api/auth/google
 
-### ▶️ Run the App
-`npm run dev`
+### Tasks
 
-Visit http://localhost:5173 in your browser.
+- GET /api/tasks
+- POST /api/tasks
+- PUT /api/tasks/:id
+- DELETE /api/tasks/:id
 
-## 🧱 Technologies Used
-- React
-- Vite
-- Tailwind CSS
-- Lottie React
-- ShadCN/UI (optional for dialog + button UI)
+### Admin
 
-## 🛠️ Customization
-- Add your own emoji categories in assets/emojis.js
-- Replace avatars with user-uploaded ones
-- Implement difficulty levels in computerPlay()
-- Extend to Multiplayer or Online via Socket.IO
+- GET /api/admin/users
+- PATCH /api/admin/user/:id/deactivate
 
-## 📌 To Do
- - Multiplayer support via WebSockets
--  Leaderboard (localstorage or backend)
--  Minimax AI for harder mode
+## 🛠️ Architecture & AWS Deployment
+### 🔲 Architecture Diagram
 
+### ☁️ Suggested AWS Stack
+
+- Frontend: S3 + CloudFront
+- Backend: EC2 with PM2 + NGINX
+- Database: RDS (MySQL)
+- CI/CD: GitHub Actions + CodeDeploy
+- Monitoring: CloudWatch + AWS X-Ray
+
+## 📜 Audit Logging
+All actions are logged in the audit_logs table with:
+
+- user_id
+- action_type (create/update/delete/login/etc.)
+- timestamp
+- task_id (optional)
+- details
 
 ## 📄 License
 This project is licensed under the MIT License.
-Feel free to fork, improve, and customize!
 
-## 👦Author
+## 🙌 Acknowledgments
+Thanks to Kellton Tech for the opportunity and inspiration to build this project.
 
-- Sagar Embadi
-- sagarembadi7@gmail.com
-- https://www.linkedin.com/in/sagar-embadi
+## 🧑‍🦱 Author
+
+### Sagar Embadi
+sagarembadi7@gmail.com
