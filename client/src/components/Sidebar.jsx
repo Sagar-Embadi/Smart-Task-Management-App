@@ -21,7 +21,7 @@ export default function Sidebar() {
         >
           <Menu className="w-6 h-6" />
         </button>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2" onClick={()=>navigate('/')}>
               <CheckSquare className="h-8 w-8 text-blue-600" />
               <span className="text-xl font-bold text-gray-900 dark:text-gray-100">TaskFlow</span>
             </div>
@@ -33,7 +33,7 @@ export default function Sidebar() {
           showSidebar ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 md:flex md:flex-col md:w-64`}
       >
-        <div className="flex items-center space-x-2 mb-8 py-4">
+        <div className="flex items-center space-x-2 mb-8 py-4" onClick={()=>navigate('/')}>
           <CheckSquare className="h-8 w-8 text-blue-600" />
           <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
             TaskFlow
